@@ -42,21 +42,24 @@ function App() {
     return (
       <div className='flex flex-col h-full max-h-screen bg-black '>
         <NavBar />
+        <div className='w-[250] mt-5 pb-10 font-bold pt-8'>
+          <ReactPaginate
+            previousLabel={'Previous'}
+            nextLabel={'Next'}
+            breakLabel={'...'}
+            pageCount={1000}
+            marginPagesDisplayed={3}
+            pageRangeDisplayed={3}
+            onPageChange={(e) => setPageNo(e.selected)}
+            containerClassName={'text-white'}
+          />
+        </div>
         <div className='box-border bg-black text-white font-sans .m-0 grid grid-cols-5 gap-5 items-center'>
           {movies.length > 0 &&
             Array.isArray(movies) &&
             movies.length > 0 &&
             movies.map((movie: any) => <Movie key={movie.id} {...movie} />)}
         </div>
-        <ReactPaginate
-          previousLabel={'← Previous'}
-          nextLabel={'Next →'}
-          breakLabel={'...'}
-          pageCount={1000}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={3}
-          onPageChange={(e) => setPageNo(e.selected)}
-        />
         {/* <div className='w-[250] mt-5 pb-10 font-bold pt-8'>
           <button
             className='px-4 mr-2 bg-white border-2 rounded-full hover:border-black hover:font-bold'
