@@ -27,10 +27,10 @@ function App() {
       });
   }, [pageNo]);
 
-  const handlePageClick = (pageNo) => {
-    const pageNo = pageNo['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
-    setMovies(pageNo); // offsetを変更し、表示開始するアイテムの番号を変更
-  };
+  //const handlePageChange = (pageNo) => {
+  //const pageNo = pageNo['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
+  //setMovies(pageNo); // offsetを変更し、表示開始するアイテムの番号を変更
+  // };
 
   if (movies === 'Loading' || !movies || movies.length === 0)
     return (
@@ -55,7 +55,7 @@ function App() {
           pageCount={1000}
           marginPagesDisplayed={3}
           pageRangeDisplayed={3}
-          onPageChange={handlePageClick}
+          onPageChange={(e) => setPageNo(e.selected)}
         />
         {/* <div className='w-[250] mt-5 pb-10 font-bold pt-8'>
           <button
