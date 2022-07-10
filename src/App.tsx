@@ -27,11 +27,6 @@ function App() {
       });
   }, [pageNo]);
 
-  //const handlePageChange = (pageNo) => {
-  //const pageNo = pageNo['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
-  //setMovies(pageNo); // offsetを変更し、表示開始するアイテムの番号を変更
-  // };
-
   if (movies === 'Loading' || !movies || movies.length === 0)
     return (
       <div className='flex items-center justify-center h-screen bg-gray-200'>
@@ -40,7 +35,7 @@ function App() {
     );
   else
     return (
-      <div className='flex flex-col h-full max-h-screen bg-black '>
+      <div className='flex flex-col h-full max-h-screen bg-black'>
         <NavBar />
         <div className='w-[250] mt-5 pb-10 font-bold pt-8'>
           <ReactPaginate
@@ -51,7 +46,22 @@ function App() {
             marginPagesDisplayed={3}
             pageRangeDisplayed={3}
             onPageChange={(e) => setPageNo(e.selected)}
-            containerClassName={'text-white'}
+            containerClassName={
+              'text-white justify-center items-center flex gap-x-5 gap-y-1.5'
+            }
+            pageClassName={
+              'inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full hover:border-black hover:font-bold '
+            }
+            pageLinkClassName={
+              'inline-flex justify-center rounded-full align-middle text-black'
+            }
+            breakClassName={
+              'inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full'
+            }
+            breakLinkClassName={
+              'inline-flex justify-center rounded-full align-middle text-black'
+            }
+            activeClassName={'bg-green-400'}
           />
         </div>
         <div className='box-border bg-black text-white font-sans .m-0 grid grid-cols-5 gap-5 items-center'>
@@ -60,28 +70,6 @@ function App() {
             movies.length > 0 &&
             movies.map((movie: any) => <Movie key={movie.id} {...movie} />)}
         </div>
-        {/* <div className='w-[250] mt-5 pb-10 font-bold pt-8'>
-          <button
-            className='px-4 mr-2 bg-white border-2 rounded-full hover:border-black hover:font-bold'
-            onClick={() => {
-              if (pageNo > 1) setMovies('Loading');
-              setPageNo(pageNo - 1);
-            }}
-          >
-            Previous
-          </button>
-          {pageNo}
-
-          <button
-            className='px-4 ml-2 bg-white border-2 rounded-full hover:border-black hover:font-bold'
-            onClick={() => {
-              if (pageNo > 1000) setMovies('Loading');
-              setPageNo(pageNo + 1);
-            }}
-          >
-            Next
-          </button>
-        </div>*/}
       </div>
     );
 }
