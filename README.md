@@ -8,3 +8,4 @@ Tailwindcss
 
 Themoviedb API
 
+[サンプル画像](https://gyazo.com/6a02e775fbca816f81f71e4da07faaec)
