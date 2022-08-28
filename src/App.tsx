@@ -45,7 +45,7 @@ function App() {
             pageCount={1000}
             marginPagesDisplayed={3}
             pageRangeDisplayed={3}
-            onPageChange={(e) => setPageNo(e.selected)}
+            onPageChange={(e) => setPageNo(e.selected + 1)}
             containerClassName={
               'text-white justify-center items-center flex gap-x-5 gap-y-1.5'
             }
